@@ -1,4 +1,4 @@
-module github.com/golangee/html
+module github.com/golangee/wui-html
 
 go 1.15
 
