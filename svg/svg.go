@@ -16,7 +16,7 @@ package svg
 
 import (
 	"github.com/golangee/dom"
-	. "github.com/golangee/wui"
+	. "github.com/golangee/gotrino"
 )
 
 func Svg(e ...Renderable) Node {

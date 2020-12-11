@@ -18,32 +18,32 @@ import (
 	"strings"
 
 	"github.com/golangee/dom"
-	"github.com/golangee/wui"
+	gt "github.com/golangee/gotrino"
 )
 
-func Div(e ...wui.Renderable) wui.Node {
-	return wui.Element("div", e...)
+func Div(e ...gt.Renderable) gt.Node {
+	return gt.Element("div", e...)
 }
 
-func IFrame(e ...wui.Renderable) wui.Node {
-	return wui.Element("iframe", e...)
+func IFrame(e ...gt.Renderable) gt.Node {
+	return gt.Element("iframe", e...)
 }
 
-func Hr(e ...wui.Renderable) wui.Node {
-	return wui.Element("hr", e...)
+func Hr(e ...gt.Renderable) gt.Node {
+	return gt.Element("hr", e...)
 }
 
-func Button(e ...wui.Renderable) wui.Node {
-	return wui.Element("button", e...)
+func Button(e ...gt.Renderable) gt.Node {
+	return gt.Element("button", e...)
 }
 
-func Nav(e ...wui.Renderable) wui.Node {
-	return wui.Element("nav", e...)
+func Nav(e ...gt.Renderable) gt.Node {
+	return gt.Element("nav", e...)
 }
 
 // Class sets and replaces all existing class definitions.
-func Class(classes ...string) wui.Modifier {
-	return wui.ModifierFunc(func(e dom.Element) {
+func Class(classes ...string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
 		if len(classes) == 0 {
 			return
 		}
@@ -59,8 +59,8 @@ func Class(classes ...string) wui.Modifier {
 }
 
 // AddClass appends each given class.
-func AddClass(classes ...string) wui.Modifier {
-	return wui.ModifierFunc(func(e dom.Element) {
+func AddClass(classes ...string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
 		if len(classes) == 0 {
 			return
 		}
@@ -82,8 +82,8 @@ func AddClass(classes ...string) wui.Modifier {
 }
 
 // RemoveClass remove each given class.
-func RemoveClass(classes ...string) wui.Modifier {
-	return wui.ModifierFunc(func(e dom.Element) {
+func RemoveClass(classes ...string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
 		if len(classes) == 0 {
 			return
 		}
@@ -101,187 +101,187 @@ func RemoveClass(classes ...string) wui.Modifier {
 	})
 }
 
-func SetAttribute(attr, value string) wui.Modifier {
-	return wui.ModifierFunc(func(e dom.Element) {
+func SetAttribute(attr, value string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
 		e.SetAttribute(attr, value)
 	})
 }
 
-func RemoveAttribute(attr string) wui.Modifier {
-	return wui.ModifierFunc(func(e dom.Element) {
+func RemoveAttribute(attr string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
 		e.RemoveAttribute(attr)
 	})
 }
 
 // Style sets a single CSS property.
-func Style(property, value string) wui.Modifier {
-	return wui.ModifierFunc(func(e dom.Element) {
+func Style(property, value string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
 		e.Style().SetProperty(property, value)
 	})
 }
 
-func Text(t string) wui.Modifier {
-	return wui.ModifierFunc(func(e dom.Element) {
+func Text(t string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
 		e.AppendTextNode(t)
 	})
 }
 
-func InnerHTML(t string) wui.Modifier {
-	return wui.ModifierFunc(func(e dom.Element) {
+func InnerHTML(t string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
 		e.SetInnerHTML(t)
 	})
 }
 
-func Src(src string) wui.Modifier {
-	return wui.ModifierFunc(func(e dom.Element) {
+func Src(src string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
 		e.Set("src", src)
 	})
 }
 
-func TabIndex(t string) wui.Modifier {
-	return wui.ModifierFunc(func(e dom.Element) {
+func TabIndex(t string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
 		e.SetAttribute("tabindex", t)
 	})
 }
 
-func I(mods ...wui.Renderable) wui.Node {
-	return wui.Element("i", mods...)
+func I(mods ...gt.Renderable) gt.Node {
+	return gt.Element("i", mods...)
 }
 
-func A(mods ...wui.Renderable) wui.Node {
-	return wui.Element("a", mods...)
+func A(mods ...gt.Renderable) gt.Node {
+	return gt.Element("a", mods...)
 }
 
-func Em(mods ...wui.Renderable) wui.Node {
-	return wui.Element("em", mods...)
+func Em(mods ...gt.Renderable) gt.Node {
+	return gt.Element("em", mods...)
 }
 
-func Alt(a string) wui.Modifier {
-	return wui.ModifierFunc(func(e dom.Element) {
+func Alt(a string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
 		e.Set("alt", a)
 	})
 }
 
-func Title(a string) wui.Modifier {
-	return wui.ModifierFunc(func(e dom.Element) {
+func Title(a string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
 		e.Set("title", a)
 	})
 }
 
-func Href(href string) wui.Modifier {
-	return wui.ModifierFunc(func(e dom.Element) {
+func Href(href string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
 		e.Set("href", href)
 	})
 }
 
-func Width(w string) wui.Modifier {
-	return wui.ModifierFunc(func(e dom.Element) {
+func Width(w string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
 		e.Set("width", w)
 	})
 }
 
-func Height(h string) wui.Modifier {
-	return wui.ModifierFunc(func(e dom.Element) {
+func Height(h string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
 		e.Set("height", h)
 	})
 }
 
-func Figure(mods ...wui.Renderable) wui.Node {
-	return wui.Element("figure", mods...)
+func Figure(mods ...gt.Renderable) gt.Node {
+	return gt.Element("figure", mods...)
 }
 
-func Ul(mods ...wui.Renderable) wui.Node {
-	return wui.Element("ul", mods...)
+func Ul(mods ...gt.Renderable) gt.Node {
+	return gt.Element("ul", mods...)
 }
 
-func Li(mods ...wui.Renderable) wui.Node {
-	return wui.Element("li", mods...)
+func Li(mods ...gt.Renderable) gt.Node {
+	return gt.Element("li", mods...)
 }
 
-func Ol(mods ...wui.Renderable) wui.Node {
-	return wui.Element("ol", mods...)
+func Ol(mods ...gt.Renderable) gt.Node {
+	return gt.Element("ol", mods...)
 }
 
-func Img(mods ...wui.Renderable) wui.Node {
-	return wui.Element("img", mods...)
+func Img(mods ...gt.Renderable) gt.Node {
+	return gt.Element("img", mods...)
 }
 
-func P(mods ...wui.Renderable) wui.Node {
-	return wui.Element("p", mods...)
+func P(mods ...gt.Renderable) gt.Node {
+	return gt.Element("p", mods...)
 }
 
-func Pre(mods ...wui.Renderable) wui.Node {
-	return wui.Element("pre", mods...)
+func Pre(mods ...gt.Renderable) gt.Node {
+	return gt.Element("pre", mods...)
 }
 
-func Code(mods ...wui.Renderable) wui.Node {
-	return wui.Element("code", mods...)
+func Code(mods ...gt.Renderable) gt.Node {
+	return gt.Element("code", mods...)
 }
 
-func Aside(mods ...wui.Renderable) wui.Node {
-	return wui.Element("aside", mods...)
+func Aside(mods ...gt.Renderable) gt.Node {
+	return gt.Element("aside", mods...)
 }
 
-func Blockquote(mods ...wui.Renderable) wui.Node {
-	return wui.Element("blockquote", mods...)
+func Blockquote(mods ...gt.Renderable) gt.Node {
+	return gt.Element("blockquote", mods...)
 }
 
-func Figcaption(mods ...wui.Renderable) wui.Node {
-	return wui.Element("figcaption", mods...)
+func Figcaption(mods ...gt.Renderable) gt.Node {
+	return gt.Element("figcaption", mods...)
 }
 
-func Span(mods ...wui.Renderable) wui.Node {
-	return wui.Element("span", mods...)
+func Span(mods ...gt.Renderable) gt.Node {
+	return gt.Element("span", mods...)
 }
 
-func ID(id string) wui.Modifier {
-	return wui.ModifierFunc(func(e dom.Element) {
+func ID(id string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
 		e.SetID(id)
 	})
 }
 
-func AddEventListener(eventType string, f func()) wui.Modifier {
-	return wui.ModifierFunc(func(e dom.Element) {
+func AddEventListener(eventType string, f func()) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
 		e.AddEventListener(eventType, false, f)
 	})
 }
 
-func AddClickListener(f func()) wui.Modifier {
+func AddClickListener(f func()) gt.Modifier {
 	return AddEventListener("click", f)
 }
 
-func AddKeyDownListener(f func(keyCode int)) wui.Modifier {
-	return wui.ModifierFunc(func(e dom.Element) {
+func AddKeyDownListener(f func(keyCode int)) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
 		e.AddKeyListener("keyup", f)
 	})
 }
 
-func AddEventListenerOnce(eventType string, f func()) wui.Modifier {
-	return wui.ModifierFunc(func(e dom.Element) {
+func AddEventListenerOnce(eventType string, f func()) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
 		e.AddEventListener(eventType, true, f)
 	})
 }
 
-func AriaLabel(label string) wui.Modifier {
-	return wui.ModifierFunc(func(e dom.Element) {
+func AriaLabel(label string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
 		e.SetAttribute("aria-label", label)
 	})
 }
 
-func AriaOrientation(orientation string) wui.Modifier {
-	return wui.ModifierFunc(func(e dom.Element) {
+func AriaOrientation(orientation string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
 		e.SetAttribute("aria-orientation", orientation)
 	})
 }
 
-func AriaLabelledby(label string) wui.Modifier {
-	return wui.ModifierFunc(func(e dom.Element) {
+func AriaLabelledby(label string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
 		e.SetAttribute("aria-labelledby", label)
 	})
 }
 
-func Role(role string) wui.Modifier {
-	return wui.ModifierFunc(func(e dom.Element) {
+func Role(role string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
 		e.SetAttribute("role", role)
 	})
 }
