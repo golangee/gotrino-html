@@ -285,3 +285,45 @@ func Role(role string) gt.Modifier {
 		e.SetAttribute("role", role)
 	})
 }
+
+// Table creates a table element.
+// See also https://html.spec.whatwg.org/multipage/tables.html#the-table-element.
+func Table(e ...gt.Renderable) gt.Node {
+	return gt.Element("table", e...)
+}
+
+// Thead creates a thead element.
+// See also https://html.spec.whatwg.org/multipage/tables.html#the-thead-element.
+func Thead(e ...gt.Renderable) gt.Node {
+	return gt.Element("thead", e...)
+}
+
+// Tr creates a tr element.
+// See also https://html.spec.whatwg.org/multipage/tables.html#the-tr-element.
+func Tr(e ...gt.Renderable) gt.Node {
+	return gt.Element("tr", e...)
+}
+
+// Th creates a th element.
+// See also https://html.spec.whatwg.org/multipage/tables.html#the-th-element.
+func Th(e ...gt.Renderable) gt.Node {
+	return gt.Element("th", e...)
+}
+
+// Td creates a td element.
+// See also https://html.spec.whatwg.org/multipage/tables.html#the-td-element.
+func Td(e ...gt.Renderable) gt.Node {
+	return gt.Element("td", e...)
+}
+
+// Tbody creates a tbody element.
+// See also https://html.spec.whatwg.org/multipage/tables.html#the-tbody-element.
+func Tbody(e ...gt.Renderable) gt.Node {
+	return gt.Element("tbody", e...)
+}
+
+// Tfoot creates a tfoot element.
+// See also https://html.spec.whatwg.org/multipage/tables.html#the-tfoot-element.
+func Tfoot(e ...gt.Renderable) gt.Node {
+	return gt.Element("tfoot", e...)
+}
