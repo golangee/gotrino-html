@@ -335,3 +335,53 @@ func Target(t string) gt.Modifier {
 		e.SetAttribute("target", t)
 	})
 }
+
+// Input creates an input element.
+// See also https://html.spec.whatwg.org/dev/input.html#the-input-element.
+func Input(e ...gt.Renderable) gt.Node {
+	return gt.Element("input", e...)
+}
+
+// Input creates an input element.
+// See also https://html.spec.whatwg.org/multipage/forms.html#the-label-element.
+func Label(e ...gt.Renderable) gt.Node {
+	return gt.Element("label", e...)
+}
+
+// Form creates a form element.
+// See also https://html.spec.whatwg.org/multipage/forms.html#the-form-element.
+func Form(e ...gt.Renderable) gt.Node {
+	return gt.Element("form", e...)
+}
+
+// For set the for attribute.
+// See also https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label.
+func For(v string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
+		e.SetAttribute("for", v)
+	})
+}
+
+// Type sets the type property.
+// See https://html.spec.whatwg.org/dev/input.html#states-of-the-type-attribute.
+func Type(v string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
+		e.Set("type", v)
+	})
+}
+
+// Name sets the name property.
+// See https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name.
+func Name(v string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
+		e.Set("name", v)
+	})
+}
+
+// Placeholder sets the placeholder property.
+// See https://html.spec.whatwg.org/multipage/input.html#the-placeholder-attribute.
+func Placeholder(v string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
+		e.Set("placeholder", v)
+	})
+}
