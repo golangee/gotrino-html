@@ -327,3 +327,11 @@ func Tbody(e ...gt.Renderable) gt.Node {
 func Tfoot(e ...gt.Renderable) gt.Node {
 	return gt.Element("tfoot", e...)
 }
+
+// Target sets a target attribute.
+// See also https://html.spec.whatwg.org/dev/links.html#links-created-by-a-and-area-elements.
+func Target(t string) gt.Modifier {
+	return gt.ModifierFunc(func(e dom.Element) {
+		e.SetAttribute("target", t)
+	})
+}
